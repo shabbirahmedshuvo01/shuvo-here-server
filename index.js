@@ -37,6 +37,11 @@ async function run() {
             res.send(project);
         })
 
+        app.post('/project', async (req, res) => {
+            const project = req.body;
+            const result = await projectCollection.insertOne(project);
+            res.send(result);
+        })
     }
     finally {
 
